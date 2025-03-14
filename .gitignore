@@ -1,0 +1,29 @@
+# .NET build artifacts
+bin/
+obj/
+*.dll
+*.pdb
+*.exe
+*.cache
+
+# User-specific files
+*.user
+*.suo
+*.userprefs
+.vs/
+.idea/
+.vscode/
+*.sln.iml
+
+# NuGet packages
+packages/
+*.nupkg
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
