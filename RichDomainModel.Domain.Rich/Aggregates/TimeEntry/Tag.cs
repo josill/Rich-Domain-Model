@@ -11,14 +11,6 @@ public readonly record struct TagId(Guid Value);
 /// </summary>
 public class Tag : Entity<TagId>
 {
-    private Tag(string name, Color color)
-    {
-        Validate(name, color);
-        
-        Name = name.Trim();
-        Color = color;
-    }
-    
     public string Name { get; }
     
     public Color Color { get; }
@@ -31,4 +23,14 @@ public class Tag : Entity<TagId>
         if (string.IsNullOrWhiteSpace(name)) throw DomainException.For<Tag>("Name can't be empty");
         if (!color.IsKnownColor) throw DomainException.For<Tag>("Color is not known");
     }
+    
+    private Tag(string name, Color color)
+    {
+        Validate(name, color);
+        
+        Name = name.Trim();
+        Color = color;
+    }
+
+    public static Tag Create(string name, Color color) => new Tag(name, color);
 }

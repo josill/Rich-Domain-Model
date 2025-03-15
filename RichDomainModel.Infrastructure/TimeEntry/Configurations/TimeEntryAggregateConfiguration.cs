@@ -22,6 +22,10 @@ internal sealed class TimeEntryAggregateConfiguration : IEntityTypeConfiguration
             .IsRequired();
 
         builder.HasMany(x => x.Tags)
-            .WithMany(t => t.TimeEntries);
+            .WithMany(x => x.TimeEntries)
+            .UsingEntity(x =>
+            {
+                x.ToTable("TimeEntryTags");
+            });
     }
 }

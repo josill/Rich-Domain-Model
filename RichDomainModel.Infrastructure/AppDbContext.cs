@@ -22,5 +22,6 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     private static void ApplyEntityConfiguration(ModelBuilder modelBuilder)
     {
         new TimeEntryAggregateConfiguration().Configure(modelBuilder.Entity<TimeEntryAggregate>());
+        new TagConfiguration().Configure(modelBuilder.Entity<Tag>());
     }
 }
