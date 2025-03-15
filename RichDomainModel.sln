@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichDomainModel.Rich", "RichDomainModel.Rich\RichDomainModel.Rich.csproj", "{762C16B7-1ECE-4955-9681-948140886A5F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichDomainModel.Domain.Rich", "RichDomainModel.Domain.Rich\RichDomainModel.Domain.Rich.csproj", "{762C16B7-1ECE-4955-9681-948140886A5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichDomainModel.Anemic", "RichDomainModel.Anemic\RichDomainModel.Anemic.csproj", "{979E6CAA-420B-4F81-AB30-5C48948FC13D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichDomainModel.Domain.Anemic", "RichDomainModel.Domain.Anemic\RichDomainModel.Domain.Anemic.csproj", "{979E6CAA-420B-4F81-AB30-5C48948FC13D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichDomainModel.Infrastructure", "RichDomainModel.Infrastructure\RichDomainModel.Infrastructure.csproj", "{C6A04887-1728-4E45-8964-28C727EDDE79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +26,9 @@ Global
 		{979E6CAA-420B-4F81-AB30-5C48948FC13D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{979E6CAA-420B-4F81-AB30-5C48948FC13D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{979E6CAA-420B-4F81-AB30-5C48948FC13D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6A04887-1728-4E45-8964-28C727EDDE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6A04887-1728-4E45-8964-28C727EDDE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6A04887-1728-4E45-8964-28C727EDDE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6A04887-1728-4E45-8964-28C727EDDE79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
