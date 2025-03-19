@@ -35,9 +35,9 @@ public class TimeEntryTimer : ValueObject<TimeEntryTimer>
     private static void Validate(DateTime startTime, DateTime? endTime)
     {
         if (startTime < MinimumStartTime) throw DomainException.For<TimeEntryAggregate>($"Start time has to be bigger than: {MinimumStartTime}");
-        if (endTime.HasValue && endTime.Value > startTime)
+        if (endTime.HasValue && endTime.Value < startTime)
         {
-            throw DomainException.For<TimeEntryAggregate>("End time can't be bigger than start time");
+            throw DomainException.For<TimeEntryAggregate>("End time can't be smaller than start time");
         }
     }
 

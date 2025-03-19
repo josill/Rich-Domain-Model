@@ -11,6 +11,12 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<TimeEntryAggregate> TimeEntries { get; init; }
     public DbSet<Tag> Tags { get; init; }
     
+    private static void ApplyEntityConfiguration(ModelBuilder modelBuilder)
+    {
+        new TimeEntryAggregateConfiguration().Configure(modelBuilder.Entity<TimeEntryAggregate>());
+        new TagConfiguration().Configure(modelBuilder.Entity<Tag>());
+    }
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
@@ -23,10 +29,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 
         base.OnModelCreating(modelBuilder);
     }
-
-    private static void ApplyEntityConfiguration(ModelBuilder modelBuilder)
-    {
-        new TimeEntryAggregateConfiguration().Configure(modelBuilder.Entity<TimeEntryAggregate>());
-        new TagConfiguration().Configure(modelBuilder.Entity<Tag>());
-    }
+    
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default) => 
+        await base.SaveChangesAsync(cancellationToken);
 }

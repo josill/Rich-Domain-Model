@@ -22,4 +22,11 @@ public interface IAppDbContext :
     /// <param name="entity">The entity</param>
     /// <returns>Entry instance for the entity</returns>
     EntityEntry Entry(object entity);
+    
+    /// <summary>
+    /// Saves all changes made in this context to the database
+    /// </summary>
+    /// <param name="cancellationToken">A CancellationToken to observe while waiting for the task to complete</param>
+    /// <returns>The number of state entries written to the database</returns>
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

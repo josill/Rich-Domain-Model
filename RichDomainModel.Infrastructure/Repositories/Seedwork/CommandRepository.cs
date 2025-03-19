@@ -16,6 +16,7 @@ public class CommandRepository(IAppDbContext context) : ICommandRepository
         try
         {
             await context.Set<TEntity>().AddAsync(entity, cancellationToken);
+            await context.SaveChangesAsync(cancellationToken);
         }
         catch (DbUpdateException ex)
         {

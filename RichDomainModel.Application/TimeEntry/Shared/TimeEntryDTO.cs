@@ -3,6 +3,11 @@ namespace RichDomainModel.Application.TimeEntry.Shared;
 public record TimeEntryDTO
 {
     /// <summary>
+    /// Time entry idenitifer
+    /// </summary>
+    public required Guid Id { get; init; }
+    
+    /// <summary>
     /// Description of the time entry
     /// </summary>
     public required string Description { get; init; } = null!;
@@ -40,6 +45,6 @@ public record TimeEntryDTO
     /// <summary>
     /// List of tag ids related to the time entry
     /// </summary>
-    public required List<Guid> Tags { get; init; } = null!;
+    public required List<TagDTO> Tags { get; init; } = null!;
 }
 
