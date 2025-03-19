@@ -1,6 +1,6 @@
-using RichDomainModel.Infrastructure.TimeEntry.Seedwork;
+using RichDomainModel.Infrastructure.Configurations.Seedwork;
 using RichDomainModel.Rich.Aggregates.TimeEntry;
 
-namespace RichDomainModel.Infrastructure.TimeEntry.Configurations;
+namespace RichDomainModel.Infrastructure.Configurations.TimeEntry;
 
 internal sealed class TimeEntryDescriptionConfiguration : StringValueObjectConfiguration<TimeEntryDescription>;

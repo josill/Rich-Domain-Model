@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RichDomainModel.Rich.Aggregates.TimeEntry;
 
-namespace RichDomainModel.Infrastructure.TimeEntry.Configurations;
+namespace RichDomainModel.Infrastructure.Configurations.TimeEntry;
 
 internal sealed class TimeEntryAggregateConfiguration : IEntityTypeConfiguration<TimeEntryAggregate>
 {

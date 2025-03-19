@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RichDomainModel.Rich.Seedwork;
 
-namespace RichDomainModel.Infrastructure.TimeEntry.Seedwork;
+namespace RichDomainModel.Infrastructure.Configurations.Seedwork;
 
 public class StringValueObjectConfiguration<T> where T : StringValueObject<T>
 {

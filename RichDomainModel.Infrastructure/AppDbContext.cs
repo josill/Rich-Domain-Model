@@ -1,11 +1,16 @@
 using Microsoft.EntityFrameworkCore;
-using RichDomainModel.Infrastructure.TimeEntry.Configurations;
+using RichDomainModel.Application.Seedwork.Repositories.Seedwork;
+using RichDomainModel.Infrastructure.Configurations.TimeEntry;
+using RichDomainModel.Infrastructure.Repositories.Seedwork;
 using RichDomainModel.Rich.Aggregates.TimeEntry;
 
 namespace RichDomainModel.Infrastructure;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options), IAppDbContext
 {
+    public DbSet<TimeEntryAggregate> TimeEntries { get; init; }
+    public DbSet<Tag> Tags { get; init; }
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);

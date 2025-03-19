@@ -1,6 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RichDomainModel.Application.Seedwork.Repositories;
+using RichDomainModel.Application.Seedwork.Repositories.Seedwork;
+using RichDomainModel.Infrastructure.Repositories.Seedwork;
+using RichDomainModel.Infrastructure.Repositories.TimeEntry;
 
 namespace RichDomainModel.Infrastructure;
 
@@ -24,8 +28,8 @@ public static class DependencyInjection
         services.AddDbContext<AppDbContext>(o => o.UseNpgsql(connectionString));
 
         services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<AppDbContext>());
-        
-        // TODO: Add repositories
+
+        services.AddRepositories();
         
         var databaseSettings = new DatabaseSettings();
         configuration.Bind(DatabaseSettings.SectionName, databaseSettings);
@@ -40,6 +44,16 @@ public static class DependencyInjection
             dbContext.Database.EnsureCreated();
             dbContext.Database.Migrate();
         }
+
+        return services;
+    }
+
+    private static IServiceCollection AddRepositories(this IServiceCollection services)
+    {
+        services.AddScoped<IQueryRepository, QueryRepository>();
+        services.AddScoped<ICommandRepository, CommandRepository>();
+        services.AddScoped<ITimeEntryRepository, TimeEntryRepository>();
+        services.AddScoped<ITagRepository, TagRepository>();
 
         return services;
     }
